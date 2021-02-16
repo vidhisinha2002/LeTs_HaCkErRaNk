@@ -18,8 +18,8 @@ int main()
     int arr3[n3];
     for(i=0;i<n1;i++)
     {
-        scanf("%d",&arr1[i]);
-        s1=s1+arr1[i];
+        scanf("%d",&arr1[i]);   //scanning
+        s1=s1+arr1[i];          // consolidate height ie storing sum of height at each cylinder level
     }
     for(i=0;i<n2;i++)
     {
@@ -34,16 +34,16 @@ int main()
     i=0;
     while(1)
     {
-        if(s1==s2 && s2==s3 && s3==s1)
+        if(s1==s2 && s2==s3 && s3==s1)  //what if stack gets empty while removing cylinders
             break;
-        if(s1>=s2 && s1>=s3)
+        if(s1>=s2 && s1>=s3)        //if height of stack  is most remove from 1
             s1=s1-arr1[i++];
         else if(s2>=s1 && s2>=s3)
             s2=s2-arr2[j++];
         else 
             s3=s3-arr3[k++];
     }
-    if(s1==0||s2==0||s3==0)
+    if(s1==0||s2==0||s3==0)     // now if all heights are equal return any one
         printf("0");
     else 
         printf("%d",s1);
