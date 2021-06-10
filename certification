@@ -1,0 +1,5 @@
+select s.stock_code from price_today as s , price_tomorrow as p where p.stock_code=s.stock_code and p.price>s.price;
+
+select s.roll_number,s.name from student_information as s,faculty_information as f 
+where
+(s.advisor=f.employee_id )and ((f.gender='M' and salary>15000 )or (f.gender='F' and salary>20000))
