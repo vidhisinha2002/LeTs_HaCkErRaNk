@@ -28,6 +28,23 @@ long parse_long(char*);
 
 long getWays(int n, int c_count, long* c) {
 
+    long table[n+1][c_count],x,y;
+
+    for (int i=0; i<c_count; i++)
+        table[0][i] = 1;
+  
+    for (int i = 1; i < n+1; i++)
+    {
+        for (int j = 0; j < c_count; j++)
+        {
+            x = (i-c[j] >= 0)? table[i - c[j]][j]: 0;
+ 
+            y = (j >= 1)? table[i][j-1]: 0;
+ 
+            table[i][j] = x + y;
+        }
+    }
+    return table[n][c_count-1];
 }
 
 int main()
